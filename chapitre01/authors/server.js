@@ -66,8 +66,17 @@ app.get("/json/authors/:id", (req, res) => {
         }
     }
 });
+app.get("/json/authors/:id/books", (req, res) => {
+    let books = authors[req.params.id-1].books;    
+    for (let i = 1; i <= authors.length; i++) {
+        if (req.params.id == i) {
+            res.json({ books : `[${books}]` })
+           
+        }
+    }
+});
 
-
+//Bonus
 
 app.listen(port, () => {
     console.log("server start");
