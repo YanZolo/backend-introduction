@@ -3,6 +3,8 @@ const app = express();
 const port = 8000;
 let countriesNames = [];
 
+// ça ne marche pas :/
+
 app.get("https://restcountries.eu/rest/v1/all",(req, res) =>{
    
     for(let i = 0; i < req.length; i++) {
