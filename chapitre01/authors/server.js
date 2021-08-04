@@ -76,7 +76,6 @@ app.get("/json/authors/:id/books", (req, res) => {
     }
 });
 
-//Bonus
 
 app.listen(port, () => {
     console.log("server start");
