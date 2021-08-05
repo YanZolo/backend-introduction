@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 app.get("/authors/:number", (req, res) => {
     for (let i = 1; i <= authors.length; i++) {
         if (req.params.number == i) {
-            res.send(`${authors[i-1].name}, ${authors[i-1].nationality}`);
+            res.send(`${authors[i - 1].name}, ${authors[i - 1].nationality}`);
         }
     }
 });
@@ -48,7 +48,7 @@ app.get("/authors/:number", (req, res) => {
 app.get("/authors/:number/books", (req, res) => {
     for (let i = 1; i <= authors.length; i++) {
         if (req.params.number == i) {
-            res.send(`${authors[i-1].books}`);
+            res.send(`${authors[i - 1].books}`);
         }
     }
 });
@@ -57,21 +57,22 @@ app.get("/authors/:number/books", (req, res) => {
 //exercice04
 
 app.get("/json/authors/:id", (req, res) => {
-    let name = authors[req.params.id-1].name;
-    let nationality = authors[req.params.id-1].nationality;
+    let name = authors[req.params.id - 1].name;
+    let nationality = authors[req.params.id - 1].nationality;
     for (let i = 1; i <= authors.length; i++) {
         if (req.params.id == i) {
-            res.json({ name : name , nationality : nationality})
-           
+            res.json({ name: name, nationality: nationality })
+
         }
     }
 });
-app.get("/json/authors/:id/books", (req, res) => {
-    let books = authors[req.params.id-1].books;    
+
+app.get("/json/authors/:id/books", (req, res) => {    
     for (let i = 1; i <= authors.length; i++) {
         if (req.params.id == i) {
-            res.json({ books : `[${books}]` })
-           
+            let currentBook = authors[req.params.id - 1].books;           
+            res.json({ books: currentBook })
+
         }
     }
 });
